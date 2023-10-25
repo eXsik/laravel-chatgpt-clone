@@ -1,6 +1,7 @@
 <script setup>
+import ChatContent from "@/Components/ChatContent.vue";
 import ChatLayout from "./ChatLayout.vue";
-import { useForm } from "@inertiajs/vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
     messages: Array,
@@ -19,8 +20,26 @@ const submit = () => {
 <template>
     <ChatLayout>
         <template #aside>
-
+            <ul class="p-2">
+                <template v-for="message in messages" :key="message.id">
+                    <li
+                        class="px-4 py-2 my-2 flex justify-between font-semibold text-slate-400 bg-slate-900 hover:bg-slate-700 rounded-lg duration-200">
+                        <Link :href="`/chat/${message.id}`">{{ message.context[0].content }}</Link>
+                    </li>
+                </template>
+            </ul>
         </template>
+        <div class="w-full flex text-white">
+            <template v-if="chat">
+                <div class="w-full flex h-screen bg-slate-900 pt-6">
+                    <div class="w-full overflow-auto">
+                       <template v-for="(content, index) in chat?.context" :key="index">
+                            <ChatContent :content="content"></ChatContent>
+                       </template>
+                    </div>
+                </div>
+            </template>
+        </div>
         <template #form>
             <div class="w-full text-white flex">
                 <section class="w-full px-6 top-0">
