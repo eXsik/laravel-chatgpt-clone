@@ -14,7 +14,8 @@ class ChatGptStoreController extends Controller
      */
     public function __invoke(StoreChatRequest $request, string $id = null)
     {
-        $messages[] = [];
+        $messages = [];
+
         if($id) {
             $chat = Chat::findOrFail($id);
             $messages = $chat->context;
