@@ -1,11 +1,11 @@
 <script setup>
-import { computed } from "vue";
+    import { computed } from "vue";
 
-const props = definceProps({
-    content: Object
-});
+    const props = definceProps({
+        content: Object
+    });
 
-const user = computed(() => props.content?.role === 'user');
+    const user = computed(() => props.content?.role === 'user');
 </script>
 
 <template>
