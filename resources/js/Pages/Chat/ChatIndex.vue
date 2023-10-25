@@ -22,10 +22,10 @@ const submit = () => {
 
         </template>
         <template #form>
-            <div class="w-full text-white flex ">
+            <div class="w-full text-white flex">
                 <section class="w-full px-6 top-0">
                     <div class="w-full">
-                        <div class="relative flex-1 flex items-center">
+                        <div class="relative flex-1 flex items-center ">
                             <input type="text" class="w-full bg-slate-700 text-white rounded-lg"
                                 placeholder="Ask Laravel AI" v-model="form.prompt" @keyup.enter="submit">
                             <div class="absolute inset-y-0 right-0 flex items-center pl-3">
