@@ -1,7 +1,7 @@
 <script setup>
     import { computed } from "vue";
 
-    const props = definceProps({
+    const props = defineProps({
         content: Object
     });
 
